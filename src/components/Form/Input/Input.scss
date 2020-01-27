@@ -1,0 +1,22 @@
+@import '~bulma/sass/utilities/_all.sass';
+
+.field {
+  .input--is-white {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    color: #040404;
+    background-color: #fff;
+    border: 0;
+    border-radius: 500px;
+    padding: 0 16px;
+
+    &:hover {
+      background-color: #f1f1f1;
+    }
+
+    @include touch {
+      max-width: unset;
+    }
+  }
+}

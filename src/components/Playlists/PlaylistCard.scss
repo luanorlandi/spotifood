@@ -1,0 +1,28 @@
+@import '~bulma/sass/utilities/_all.sass';
+
+.playlist-card {
+  padding: 16px;
+  background-color: #252525;
+  color: #b3b3b3;
+  transition: 200ms;
+
+  &:hover {
+    color: #b3b3b3;
+    background-color: #333333;
+  }
+
+  @include touch {
+    text-align: center;
+  }
+}
+
+.playlist-card__image {
+  width: 300px;
+  height: 268px;
+}
+
+.playlist-card__title {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+}

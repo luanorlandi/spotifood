@@ -1,29 +1,34 @@
-# iFood Frontend Test
+# Spotifood
 
-Create a web application called Spotifood used to display the preferred playlists from iFood's customers. The web application has only one page:
-* A page that lists the featured playlists at Spotify according to some criteria.
+Project developed for [ifood-frontend-test](https://github.com/ifood/ifood-frontend-test). Use the following commands to run this project:
 
-## Business rules
+```
+npm i
+npm start
+```
 
-* The page is composed of two components:
-    * One list of featured playlists
-    * One filter component with API filter fields and one local search text input to filter the playlists by "name".
-    
-* The filter component should be used to filter the elements displayed by the list of featured playlists.
-* The API filter fields and their possible values/type should be mounted by consuming this API **[1. Playlists Filters]** (http://www.mocky.io/v2/5a25fade2e0000213aa90776)
-* The featured playlists to be displayed should be consumed from this API **[2. See the documentation from Spotify]** (https://developer.spotify.com/web-api/get-list-featured-playlists/)
-* Every time the user change any information on the filter component, the list should be refresh accordingly. In case of API filter field change you should recall the playlists API with the filter parameters every time.
-* Considering that we live in a chaotic and fast-changing world, the page should refresh its content every 30 seconds, to see if any information from the Spotify APIs had been changed.
+## Architecture, libs and details about the project
 
-## Hints or Constraints
+I choose [React](https://reactjs.org/) as suggested and bootstrapped with [create-react-app](https://github.com/facebook/create-react-app) for a quick setup over a manual configuration of [webpack](https://webpack.js.org/).
 
-We will use one API from Spotify Web API. You should follow the Spotify guide in order to create a token needed to access Spotify's API.
-To mount the API filter fields on the filter component, you **must** consume the API that provides the metadata about the fields (Link 1).
-You could use Material UI, Bootstrap or any other toolkit to accelerate your resolution. We will not provide any UI prototype or design.
+The state management is using React states itself with components (when it's a local) and [Context API](https://reactjs.org/docs/context.html) (for global states).
 
-## Non functional requirements
+I choose Context over [Redux](https://redux.js.org/) mostly for the following reasons:
 
-As this application will be a worldwide success, it must be prepared to be accessible, responsive, fault tolerant and resilient.
-We **strongly recommend** using React to build the application.
-Also, briefly elaborate on your solution architecture details, choice of patterns and frameworks.
-Fork this repository and submit your code.
+- The setup and reduced amount code in the project makes it more simple to use
+- More states can be added in `src/contexts/` like a store, but they can be separated in different providers
+- The app doesn't need state middlewares or [redux-form](https://redux-form.com/)
+
+Featured libs I used:
+
+- [Bulma](https://bulma.io/): nice CSS framework, I find it more simple than Bootstrap, even though the class names are more verbose.
+
+- [SASS](https://sass-lang.com/guide) and [BEM](http://getbem.com/introduction/): a scalable way to structure the CSS
+
+- [formik](https://github.com/jaredpalmer/formik): awesome lib to build forms, it helps a lot to handle events and values, so less code and more readable components
+
+- [react-toastify](https://github.com/fkhadra/react-toastify): toasts that use React Portal, so it makes more easy and simple to display errors throughout the app
+
+- [eslint](https://eslint.org/): I think it's important in any front-end project for maintainability purposes and code style, it also helped the accessibility development with some rules of [eslint-plugin-jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)
+
+- [react-resting-library](https://testing-library.com/): an alternative to [Enzyme](https://github.com/airbnb/enzyme), I choose to give it a try and because it comes with create-react-app. The experience was like testing with [Cypress](https://www.cypress.io/), everything guiding the developer to test by thinking in the user interaction, instead of providing a lot of ways and tools. I created some tests for the main functions of the app, but in more time I would increase the test coverage
