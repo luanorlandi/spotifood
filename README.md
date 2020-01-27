@@ -1,5 +1,7 @@
 # Spotifood
 
+Check out the app at [luanorlandi.github.io/spotifood](https://luanorlandi.github.io/spotifood/).
+
 Project developed for [ifood-frontend-test](https://github.com/ifood/ifood-frontend-test). Use the following commands to run this project:
 
 ```
